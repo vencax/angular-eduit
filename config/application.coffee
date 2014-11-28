@@ -17,6 +17,13 @@ module.exports = (lineman) ->
 
   app = lineman.config.application
 
+  # Context for index.us
+  app.pages.dev.context.rest =
+    url: process.env.API_URL || ''
+
+  app.pages.dist.context.rest =
+    url: process.env.API_URL || ''
+
   # Override application configuration here. Common examples follow in the comments.
 
     #grunt-angular-templates assumes your module is named "app", but
@@ -36,6 +43,7 @@ module.exports = (lineman) ->
 
   server:
     pushState: true
+    web: { port: process.env.PORT || 8000; }
     # API Proxying
 
     # During development, you'll likely want to make XHR (AJAX) requests to an API on the same
@@ -63,4 +71,3 @@ module.exports = (lineman) ->
   #via grunt-asset-fingerprint
 #
   #enableAssetFingerprint: true
-

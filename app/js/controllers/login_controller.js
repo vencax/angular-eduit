@@ -1,23 +1,17 @@
-var app = angular.module("app");
+angular.module("app")
 
+.controller('LoginController', function($scope, $rootScope, $location, AuthService, TicketSrvc) {
 
-app.controller('LoginController', function($scope, $rootScope, $location, AuthenticationService) {
-
-  $scope.credentials = { uname: "", passwd: "" };
+  $scope.credentials = { username: "", password: "" };
 
   $scope.login = function() {
-    AuthenticationService.login($scope.credentials, function(err, user) {
+    AuthService.login($scope.credentials, function(err, user) {
       if (err) {
-        return alert(err);
+        $scope.error = err;
+      } else {
+        $rootScope.onLoggedIn(user);
+        $location.path("/");
       }
-      $location.path("/");
-      $rootScope.loggedUser = user;
-      return $rootScope.logout = function() {
-        return AuthenticationService.logout(function() {
-          $rootScope.loggedUser = '';
-          return $location.path("/login");
-        });
-      };
     });
   };
 

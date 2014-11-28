@@ -3,7 +3,7 @@ var app = angular.module("app");
 
 
 // add authentication
-app.run(function($rootScope, $location, AuthenticationService) {
+app.run(function($rootScope, $location, SessionService) {
 
   // enumerate routes that don't need authentication
   var routesNoRequiringAuth = ['/login'];
@@ -18,7 +18,7 @@ app.run(function($rootScope, $location, AuthenticationService) {
 
     // if route requires auth and user is not logged in
     if ((! routeClean($location.url())) &&
-      (! AuthenticationService.isLoggedIn())) {
+      (! SessionService.isLoggedIn())) {
       // redirect back to login
       $location.path("/login");
     }
@@ -30,29 +30,21 @@ app.run(function($rootScope, $location, AuthenticationService) {
 // inject authorization header into outgoing reqs
 app.config(function($httpProvider) {
 
-  $httpProvider.interceptors.push(function($q, $location, $window) {
+  $httpProvider.interceptors.push(function($q, $location, $rootScope, SessionService) {
     return {
       request: function(config) {
         config.headers = config.headers || {};
-        if ($window.sessionStorage.token) {
-          config.headers.Authorization = 'Bearer ' + $window.sessionStorage.token;
+        if (SessionService.getCurrentUser()) {
+          config.headers.Authorization = 'Bearer ' + SessionService.getCurrentUser().token;
         }
         return config;
       },
 
-      response: function(response) {
-        if (response.status === 401) {
-          $location.url('/login');
-        }
-        return response || $q.when(response);
-      },
-
       responseError: function(rejection) {
-        if (response.status === 401) {
-          $location.url('/login');
+        if (rejection.status === 401) {
+          $rootScope.logout();
         }
-        alert('Request rejected: ' + rejection);
-        return rejection;
+        return $q.reject(rejection);
       }
     };
   });
