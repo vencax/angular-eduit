@@ -1,18 +1,14 @@
 
 angular.module("app")
 
-.factory('AuthService', function($http, $window, $rootScope, SessionService, Conf) {
+.factory('AuthService', function($http, $window, SessionService, Conf) {
 
   // these routes map to stubbed API endpoints in config/server.js
   return {
     login: function(credentials, done) {
       $http.post('/auth/login', credentials)
-        .success(function(user){
-          SessionService.currentUser = user;
-          $window.sessionStorage.token = user.token;
-          if (! ('name' in user)) {
-            user.name = user.first_name + ' ' + user.last_name || user.username;
-          }
+        .success(function(user) {
+          SessionService.setCurrentUser(user, user.token);
           return done(null, user);
         })
         .error(function(err){

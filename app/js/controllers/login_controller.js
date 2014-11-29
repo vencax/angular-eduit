@@ -1,6 +1,6 @@
 angular.module("app")
 
-.controller('LoginController', function($scope, $rootScope, $location, AuthService, TicketSrvc) {
+.controller('LoginController', function($scope, $rootScope, $location, AuthService) {
 
   $scope.credentials = { username: "", password: "" };
 
