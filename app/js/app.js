@@ -1,5 +1,5 @@
 var app = angular.module("app", [
-  "ngResource", "ngRoute", "ui.bootstrap", "ngStorage"
+  "ngResource", "ngRoute", "ngTable", "ui.bootstrap", "ngStorage"
 ]);
 
 app.run(function($rootScope, $location, SessionService, AuthService) {
