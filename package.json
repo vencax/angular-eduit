@@ -1,12 +1,8 @@
 {
-  "name": "lineman-angular-template",
-  "title": "An HTML/JS/CSS app using Angular.JS",
+  "name": "lineman-eduit",
+  "title": "Angular.JS client to node-eduit-server",
   "version": "0.0.1",
-  "private": true,
-  "author": {
-    "name": "John Doe",
-    "company": "ACME, Inc."
-  },
+  "author": "Vaclav Klecanda",
   "devDependencies": {
     "coffee-script": "^1.6.3",
     "jasmine-given": "^2.6.2",
