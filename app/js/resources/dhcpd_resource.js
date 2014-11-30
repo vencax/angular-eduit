@@ -1,6 +1,8 @@
-angular.module("app").factory("DHCPDHost", function($resource) {
+angular.module("app")
 
-  return $resource('/api/dhcpdcfg/dhcphosts/:dhcphost', {}, {
+.factory("DHCPDHost", function($resource, Conf) {
+
+  return $resource(Conf.dhcpdconfhost + '/dhcphosts/:dhcphost', {}, {
       'update': { method:'PUT' }
   });
 

@@ -27,7 +27,8 @@
 
     <script>
       angular.module('app').constant('Conf', {
-        host: '<%= rest.url %>'
+        host: '<%= rest.url %>',
+        dhcpdconfhost: '<%= rest.dhcpd_url %>'
       });
     </script>
 

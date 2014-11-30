@@ -17,12 +17,13 @@ module.exports = (lineman) ->
 
   app = lineman.config.application
 
-  # Context for index.us
-  app.pages.dev.context.rest =
+  backendConfig =
     url: process.env.API_URL || ''
+    dhcpd_url: process.env.DHCPD_URL || 'http://192.168.1.1:7801'
 
-  app.pages.dist.context.rest =
-    url: process.env.API_URL || ''
+  # Context for index.us
+  app.pages.dev.context.rest = backendConfig
+  app.pages.dist.context.rest = backendConfig
 
   # Override application configuration here. Common examples follow in the comments.
 
