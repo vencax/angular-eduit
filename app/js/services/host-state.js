@@ -1,11 +1,11 @@
-angular.module("app").factory('HostStateSrvc', function($http) {
+angular.module("app").factory('HostStateSrvc', function($http, Conf) {
 
   return {
     get: function(mac) {
-      return $http.get('/api/dhcpdcfg/hoststate/' + mac);
+      return $http.get(Conf.dhcpdconfhost + '/hoststate/' + mac);
     },
     wake: function(mac) {
-      return $http.put('/api/dhcpdcfg/hoststate/' + mac, {state: 1});
+      return $http.put(Conf.dhcpdconfhost + '/hoststate/' + mac, {state: 1});
     }
   };
 

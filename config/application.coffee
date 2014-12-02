@@ -18,8 +18,8 @@ module.exports = (lineman) ->
   app = lineman.config.application
 
   backendConfig =
-    url: process.env.API_URL || ''
-    dhcpd_url: process.env.DHCPD_URL || 'http://192.168.1.1:7801'
+    userman_apiurl: process.env.API_URL || '/userman_api'
+    dhcpd_url: process.env.DHCPD_URL || '/dhcpdman_api'
 
   # Context for index.us
   app.pages.dev.context.rest = backendConfig

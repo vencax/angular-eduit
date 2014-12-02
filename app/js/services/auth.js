@@ -6,7 +6,7 @@ angular.module("app")
   // these routes map to stubbed API endpoints in config/server.js
   return {
     login: function(credentials, done) {
-      $http.post('/auth/login', credentials)
+      $http.post(Conf.userman_apiurl + '/login', credentials)
         .success(function(user) {
           SessionService.setCurrentUser(user, user.token);
           return done(null, user);
@@ -23,7 +23,7 @@ angular.module("app")
 
 
     changePwd: function(pwd, cb) {
-      $http.post(Conf.host + '/auth/setpasswd', {'passwd': pwd})
+      $http.post(Conf.userman_apiurl + '/setpasswd', {'passwd': pwd})
         .success(function(data) {
           return cb(null, data);
         })
