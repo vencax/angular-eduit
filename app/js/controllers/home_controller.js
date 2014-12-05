@@ -34,22 +34,15 @@ angular.module("app").controller('HomeController', ['$scope', '$filter', '$modal
     }
   });
 
-  $scope.newItem = new DHCPDHost();
+  var pcEditModal = $modal({
+    scope: $scope, template: 'editForm.html', show: false
+  });
 
-  $scope.editForm = function (host) {
+  $scope.showModal = function(host) {
 
-    var modalInstance = $modal.open({
-      templateUrl: 'editForm.html',
-      controller: 'ModalInstanceCtrl',
-      resolve: {
-        item: function () {
-          return host ? new DHCPDHost(host) : $scope.newItem;
-        },
-        host: function () {
-          return host;
-        }
-      }
-    });
+    $scope.item = host ? new DHCPDHost(host) : new DHCPDHost();
+
+    pcEditModal.$promise.then(pcEditModal.show);
 
     var _copyHost = function(src, dest) {
       dest.ip = src.ip;
@@ -59,16 +52,34 @@ angular.module("app").controller('HomeController', ['$scope', '$filter', '$modal
       dest.res = src.res;
     };
 
-    modalInstance.result.then(function (item) {
-      if (! host) {
-        $scope.data.push($scope.newItem);
-        $scope.tableParams.reload();
-        $scope.newItem = new DHCPDHost();
-      } else {
-        _copyHost(item, host);
-      }
-    });
+    $scope.save = function() {
 
+      function _on_persisted(data) {
+        if(host) {
+          _copyHost($scope.item, host);
+        } else {
+          $scope.data.push($scope.item);
+          $scope.tableParams.reload();
+        }
+        pcEditModal.hide();
+      }
+
+      if('res' in $scope.item && $scope.item.res === true) {
+
+        if($scope.item.mac !== host.mac) {
+          // we have chaged primary ID, so remove the old item and add a newone
+          host.$remove({dhcphost: host.mac}, function(data){
+            $scope.item.$save(_on_persisted, _err_handler);
+          }, _err_handler);
+        } else {
+          $scope.item.$update({dhcphost:$scope.item.mac}, _on_persisted, _err_handler);
+        }
+
+      } else {
+        $scope.item.$save(_on_persisted, _err_handler);
+      }
+
+    };
   };
 
   $scope.wakeHost = function($event, host){
@@ -88,45 +99,3 @@ angular.module("app").controller('HomeController', ['$scope', '$filter', '$modal
   };
 
 }]);
-
-
-// edit form instance
-angular.module('app')
-.controller('ModalInstanceCtrl', function ($scope, $modalInstance, item, host) {
-
-  $scope.item = item;
-
-  $scope.ok = function () {
-
-    if('res' in item && host.res === true) {
-
-      if(item.mac !== host.mac) {
-
-        // we have chaged primary ID, so remove the old item and add a newone
-        host.$remove({dhcphost: host.mac}, function(data){
-          item.$save(function(data){
-            $modalInstance.close(data);
-          }, _err_handler);
-        }, _err_handler);
-
-      } else {
-
-        item.$update({dhcphost:item.mac}, function(data){
-          $modalInstance.close(data);
-        }, _err_handler);
-      }
-
-    } else {
-
-      item.$save(function(data){
-        $modalInstance.close(data);
-      }, _err_handler);
-
-    }
-
-  };
-
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
-});

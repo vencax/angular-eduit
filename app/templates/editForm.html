@@ -1,4 +1,9 @@
 
+<div class="modal" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
 <div class="modal-header">
   <h3 class="modal-title">Host edit form</h3>
 </div>
@@ -48,6 +53,10 @@
 </div>
 
 <div class="modal-footer">
-  <button class="btn btn-primary" ng-disabled="hostform.$invalid" ng-click="ok()">OK</button>
-  <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+  <button class="btn btn-primary" ng-disabled="hostform.$invalid" ng-click="save()">OK</button>
+  <button class="btn btn-default" ng-click="$hide();">Cancel</button>
+</div>
+
+    </div>
+  </div>
 </div>
