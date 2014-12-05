@@ -11,6 +11,41 @@ angular.module("app")
 
   $scope.data = User.query();
   $scope.groups = Group.query();
+  $scope.selected = {};
+
+  $scope.actionChoices = [
+    { text: "Disable", click: "doAction(1);" },
+    { text: "Remove", click: "doAction(0);" }
+  ];
+
+  function removeSelected() {
+    if (confirm('Are you sure you want to remove all selected?')) {
+      for(var u in $scope.selected) {
+        u.$remove({id: u.id});
+      }
+      $scope.selected = {};
+    }
+  }
+
+  function disableSelected() {
+    if (confirm('Are you sure you want to disable all selected?')) {
+      for(var u in $scope.selected) {
+        u.status = 1;
+        u.$update({id: u.id});
+      }
+      $scope.selected = {};
+    }
+  }
+
+  $scope.doAction = function(action) {
+    switch(action) {
+    case 0:
+      removeSelected();
+      break;
+    case 1:
+      disableSelected();
+    }
+  };
 
   $scope.tableParams = new NgTableParams({
     page: 1,            // show first page
@@ -52,7 +87,7 @@ angular.module("app")
 
     $scope.save = function() {
       function _on_persisted(data) {
-        $scope.data.push($scope.item);
+        $scope.data.push(data);
         $scope.tableParams.reload();
         myModal.hide();
       }
@@ -70,12 +105,6 @@ angular.module("app")
     for(var i; i<$scope.groups.length; i++) {
       var g = $scope.groups[i];
       if(g.id === gid) { return g.name; }
-    }
-  };
-
-  $scope.remove = function($event, user) {
-    if (confirm('Are you sure you want to remove ' + user.name)) {
-      host.$remove({id: user.id});
     }
   };
 

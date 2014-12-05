@@ -7,15 +7,28 @@
 
     <p>
       <button type="button" class="btn btn-info" ng-click="showModal();">
-        <i class="glyphicon glyphicon-pushpin"></i> Add
+        <i class="glyphicon glyphicon-plus"></i> Add
       </button>
 
-      <button ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Clear sorting</button>
-      <button ng-click="tableParams.filter({})" class="btn btn-default pull-right">Clear filter</button>
+      <div class="pull-right">
+        <button ng-click="tableParams.sorting({})" class="btn btn-default ">
+          Clear sorting
+        </button>
+        <button ng-click="tableParams.filter({})" class="btn btn-default">
+          Clear filter
+        </button>
+        <button type="button" class="btn btn-default" bs-dropdown="actionChoices">
+          actions <span class="caret"></span>
+        </button>
+      </div>
     </p>
 
     <table ng-table="tableParams" show-filter="true" class="table table-stripped">
       <tr ng-repeat="user in $data" ng-class="{active: host.res == true}">
+
+        <td>
+          <input type="checkbox" ng-model="selected[user.id]" />
+        </td>
 
         <td data-title="'Status'" sortable="'state'">
           <span class="glyphicon" ng-class="{'glyphicon-ok': user.state == 0, 'glyphicon-remove': user.state != 0}">
@@ -38,21 +51,9 @@
         </td>
 
         <td>
-          <div class="btn-group" dropdown>
-            <button type="button" class="btn btn-primary dropdown-toggle">
-              akce <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#" data-ng-click="editForm(user);">disable</a></li>
-              <li><a href="#" data-ng-click="disable(user);">disable</a></li>
-              <li class="divider"></li>
-              <li class="error">
-                <a href="#" data-ng-click="remove(film);">
-                  <i class="glyphicon glyphicon-remove"></i> REMOVE
-                </a>
-              </li>
-            </ul>
-          </div>
+          <button type="button" class="btn" data-ng-click="showModal(user);">
+            <i class="glyphicon glyphicon-pencil"></i> edit
+          </button>
         </td>
 
       </tr>
