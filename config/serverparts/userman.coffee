@@ -1,11 +1,6 @@
 
-_db = {}
-
-addItem = (item) ->
-  _db[item.mac] = item
-  return item
-
 user =
+  id: 0
   username: 'gandalf'
   first_name: 'gandalf'
   last_name: 'the gray'
@@ -14,6 +9,15 @@ user =
   gid: 2
   groups: [3, 4]
   state: 0
+
+_db = {0: user}
+_nextId=1
+
+addItem = (item) ->
+  id = _nextId++
+  item.id = id
+  _db[id] = item
+  return item
 
 
 module.exports = (app) ->
