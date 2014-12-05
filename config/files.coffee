@@ -28,9 +28,11 @@ module.exports = (lineman) ->
       "vendor/bower/angular-resource/angular-resource.js",
       "vendor/bower/angular-route/angular-route.js",
       "vendor/bower/ng-table/ng-table.js",
-      "vendor/bower/angular-bootstrap/ui-bootstrap-tpls.js",
       "vendor/bower/ngstorage/ngStorage.js",
-      "vendor/bower/moment/min/moment-with-locales.js"
+      "vendor/bower/moment/min/moment-with-locales.js",
+      "vendor/bower/angular-animate/angular-animate.js",
+      "vendor/bower/angular-strap/dist/angular-strap.js",
+      "vendor/bower/angular-strap/dist/angular-strap.tpl.js"
     ],
     app: [
       "app/js/app.js",
