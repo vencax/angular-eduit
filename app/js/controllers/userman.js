@@ -45,7 +45,7 @@ angular.module("app")
 
     $scope.item = user ? user : new User();
     if(! user) {
-      $scope.item.GID = $scope.groups[0].id;
+      $scope.item.gid = $scope.groups[0].id;
     }
 
     myModal.$promise.then(myModal.show);
@@ -75,7 +75,7 @@ angular.module("app")
 
   $scope.remove = function($event, user) {
     if (confirm('Are you sure you want to remove ' + user.name)) {
-      host.$remove({dhcphost: user.id});
+      host.$remove({id: user.id});
     }
   };
 

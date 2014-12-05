@@ -17,8 +17,8 @@
     <table ng-table="tableParams" show-filter="true" class="table table-stripped">
       <tr ng-repeat="user in $data" ng-class="{active: host.res == true}">
 
-        <td data-title="'Status'" sortable="'res'">
-          <span class="glyphicon" ng-class="{'glyphicon-link': host.res, 'glyphicon-random': !host.res}">
+        <td data-title="'Status'" sortable="'state'">
+          <span class="glyphicon" ng-class="{'glyphicon-ok': user.state == 0, 'glyphicon-remove': user.state != 0}">
         </td>
 
         <td data-title="'Username'" sortable="'username'" filter="{ 'username': 'text' }">
@@ -29,8 +29,12 @@
           {{user.name}}
         </td>
 
-        <td data-title="'Primary group'" filter="{ 'gid_id': 'text' }">
-          {{ user.gid_id }}
+        <td data-title="'Primary group'" sortable="'gid'">
+          {{ user.gid }}
+        </td>
+
+        <td data-title="'Other groups'">
+          {{ user.groups }}
         </td>
 
         <td>

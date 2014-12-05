@@ -11,8 +11,9 @@ user =
   last_name: 'the gray'
   email: 'g@nda.lf'
   password: 'secretwhisper'
-  gid_id: 2
+  gid: 2
   groups: [3, 4]
+  state: 0
 
 
 module.exports = (app) ->
@@ -31,7 +32,7 @@ module.exports = (app) ->
 
   app.post "#{prefix}/check", (req, res) ->
       errs = []
-      errs.push 0 if req.body.email of _db
+      errs.push 0 if req.body.username of _db
       return res.status(200).json(errs)
 
   app.get "#{prefix}/users", (req, res) ->
@@ -42,7 +43,7 @@ module.exports = (app) ->
     res.json found
 
   app.post "#{prefix}/users", (req, res) ->
-    req.body.res = true
+    req.body.state = 0
     created = addItem(req.body)
     res.json(created)
 

@@ -9,12 +9,17 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
 
   $routeProvider.when('/', {
     templateUrl: 'home.html',
-    controller: 'HomeController'
+    controller: 'HomeCtlr'
   });
 
   $routeProvider.when('/userman', {
     templateUrl: 'userman.html',
     controller: 'UsermanCtlr'
+  });
+
+  $routeProvider.when('/pcman', {
+    templateUrl: 'pcman.html',
+    controller: 'PcmanCtlr'
   });
 
   $routeProvider.otherwise({ redirectTo: '/login' });

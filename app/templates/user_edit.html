@@ -21,6 +21,7 @@
               <small class="text-danger" ng-show="frm.username.$error.required">Please input a user</small>
               <small class="text-danger" ng-show="frm.username.$error.minlength">Username must be at least 5 characters</small>
               <small class="text-danger" ng-show="frm.username.$error.maxlength">Username name cannot be longer than 20 characters</small>
+              <small class="text-danger" ng-show="frm.username.$error.unique">Username already present</small>
             </div>
           </div>
 
@@ -69,9 +70,9 @@
               <div class="form-group">
                 <label class="control-label">Primary group</label>
 
-                <button type="button" class="btn btn-default" ng-model="item.GID"
+                <button type="button" class="btn btn-default" ng-model="item.gid"
                   ng-options="g.id as g.name for g in groups" bs-select>
-                  {{ groupname(item.GID) }} <span class="caret"></span>
+                  {{ groupname(item.gid) }} <span class="caret"></span>
                 </button>
               </div>
 

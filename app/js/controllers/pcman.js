@@ -5,7 +5,7 @@ var _err_handler = function(err){
   alert('request failed: ' + err.statusText + '\n\n' + err.data);
 };
 
-angular.module("app").controller('HomeController', ['$scope', '$filter', '$modal', 'ngTableParams', 'DHCPDHost', 'HostStateSrvc', function($scope, $filter, $modal, NgTableParams, DHCPDHost, HostStateSrvc) {
+angular.module("app").controller('PcmanCtlr', ['$scope', '$filter', '$modal', 'ngTableParams', 'DHCPDHost', 'HostStateSrvc', function($scope, $filter, $modal, NgTableParams, DHCPDHost, HostStateSrvc) {
 
   $scope.data = DHCPDHost.query();
 
@@ -35,7 +35,7 @@ angular.module("app").controller('HomeController', ['$scope', '$filter', '$modal
   });
 
   var pcEditModal = $modal({
-    scope: $scope, template: 'editForm.html', show: false
+    scope: $scope, template: 'pc_edit.html', show: false
   });
 
   $scope.showModal = function(host) {
