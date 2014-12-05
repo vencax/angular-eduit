@@ -12,6 +12,11 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
     controller: 'HomeController'
   });
 
+  $routeProvider.when('/userman', {
+    templateUrl: 'userman.html',
+    controller: 'UsermanCtlr'
+  });
+
   $routeProvider.otherwise({ redirectTo: '/login' });
 
 });
