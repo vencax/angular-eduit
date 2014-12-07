@@ -59,7 +59,7 @@ module.exports = (app) ->
 
   app.delete "#{prefix}/users/:id", (req, res) ->
     item = _db[req.params.id]
-    item.res = false;
+    delete _db[req.params.id]
     res.json(item)
 
   ######## Groups
