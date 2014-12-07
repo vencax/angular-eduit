@@ -41,11 +41,11 @@
         </td>
 
         <td data-title="'Primary group'" sortable="'gid'">
-          {{ user.gid }}
+          {{ user.gid | groupname }}
         </td>
 
         <td data-title="'Other groups'">
-          {{ user.groups }}
+          {{ user.groups | groupname }}
         </td>
 
         <td data-title="'State'" sortable="'state'">

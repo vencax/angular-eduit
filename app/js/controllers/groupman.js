@@ -84,10 +84,10 @@ angular.module("app")
         myModal.hide();
       }
 
-      if($scope.item.id) {
-        $scope.item.$update({id:$scope.item.id}, _on_persisted, _err_handler);
-      } else {
+      if($scope.item.id === undefined) {
         $scope.item.$save(_on_persisted, _err_handler);
+      } else {
+        $scope.item.$update({id:$scope.item.id}, _on_persisted, _err_handler);
       }
     };
 

@@ -27,14 +27,22 @@ angular.module("app")
         cb($scope.data[i]);
       }
     }
-    $scope.selected = {};
   }
 
   $scope.removeSelected = function() {
     if (confirm('Are you sure you want to remove all selected?')) {
       performAction(function(user) {
-        u.$remove({id: u.id});
+        user.$remove({id: user.id});
       });
+      for (var s in $scope.selected) {
+        for (var i=0; i<$scope.data.length; i++) {
+          if ($scope.data[i].id.toString() === s) {
+            $scope.data.splice(i, 1);
+            break;
+          }
+        }
+      }
+      $scope.selected = {};
       $scope.tableParams.reload();
     }
   };
@@ -42,10 +50,11 @@ angular.module("app")
   $scope.setState2Selected = function(state) {
     if (confirm('Are you sure you want to disable all selected?')) {
       performAction(function(user) {
-        u.state = state;
-        u.$update({id: u.id});
+        user.state = state;
+        user.$update({id: user.id});
       });
     }
+    $scope.selected = {};
   };
 
   $scope.tableParams = new NgTableParams({
@@ -84,15 +93,17 @@ angular.module("app")
 
     $scope.save = function() {
       function _on_persisted(data) {
-        $scope.data.push(data);
-        $scope.tableParams.reload();
+        if(! user) {
+          $scope.data.push(data);
+          $scope.tableParams.reload();
+        }
         myModal.hide();
       }
 
-      if($scope.item.id) {
-        $scope.item.$update({id:$scope.item.id}, _on_persisted, _err_handler);
-      } else {
+      if($scope.item.id === undefined) {
         $scope.item.$save(_on_persisted, _err_handler);
+      } else {
+        $scope.item.$update({id:$scope.item.id}, _on_persisted, _err_handler);
       }
     };
 

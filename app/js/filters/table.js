@@ -1,5 +1,7 @@
 
-angular.module('app').filter('formattedmac', function(){
+angular.module('app')
+
+.filter('formattedmac', function(){
   return function(mac) {
      var parts = [
       mac.slice(0, 2),
@@ -10,5 +12,29 @@ angular.module('app').filter('formattedmac', function(){
       mac.slice(10, 12)
     ];
     return parts.join(":");
+  };
+})
+
+.filter('groupname', function(Group) {
+  var grIndex = {};
+
+  var groups = Group.query(function() {
+    for (var i=0; i<groups.length; i++) {
+      var g = groups[i];
+      grIndex[g.id] = g.name;
+    }
+  });
+
+  return function(input) {
+
+    if(input instanceof Array) {
+      var na = [];
+      for (var i in input) {
+        na.push(grIndex[input[i]]);
+      }
+      return na.join(', ');
+    } else {
+      return grIndex[input];
+    }
   };
 });
