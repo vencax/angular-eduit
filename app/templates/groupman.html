@@ -1,0 +1,41 @@
+
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <div class="pull-right">
+      <button type="button" class="btn btn-default" bs-dropdown="actionChoices">
+        actions <span class="caret"></span>
+      </button>
+    </div>
+
+    <button type="button" class="btn btn-info" ng-click="showModal();">
+      <i class="glyphicon glyphicon-plus"></i> Add
+    </button>
+
+    <table ng-table="tableParams" show-filter="true" class="table table-stripped">
+      <tr ng-repeat="dato in $data" ng-class="{active: selected[dato.id] == true}">
+
+        <td>
+          <input type="checkbox" ng-model="selected[dato.id]" />
+        </td>
+
+        <td data-title="'ID'" sortable="'id'">
+          {{dato.id}}
+        </td>
+
+        <td data-title="'Name'" sortable="'name'" filter="{ 'name': 'text' }">
+          {{dato.name}}
+        </td>
+
+        <td>
+          <button type="button" class="btn" data-ng-click="showModal(dato);">
+            <i class="glyphicon glyphicon-pencil"></i> edit
+          </button>
+        </td>
+
+      </tr>
+    </table>
+
+  </div>
+</div>

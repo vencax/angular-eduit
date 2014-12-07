@@ -17,6 +17,11 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
     controller: 'UsermanCtlr'
   });
 
+  $routeProvider.when('/groupman', {
+    templateUrl: 'groupman.html',
+    controller: 'GroupmanCtlr'
+  });
+
   $routeProvider.when('/pcman', {
     templateUrl: 'pcman.html',
     controller: 'PcmanCtlr'

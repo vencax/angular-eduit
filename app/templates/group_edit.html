@@ -1,0 +1,32 @@
+<div class="modal" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h3 class="modal-title">Group edit form</h3>
+      </div>
+
+      <div class="modal-body">
+        <form name="frm">
+
+          <div class="form-group has-feedback" ng-class="{'has-error': frm.name.$invalid, 'has-success': frm.name.$valid}">
+            <label class="control-label" for="name">Name</label>
+            <input name="name" type="text" class="form-control" ng-model="item.name" ng-maxlength=32 required placeholder="Name">
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok': frm.name.$valid, 'glyphicon-remove': frm.name.$invalid}"></span>
+            <div class="error-container" ng-show="frm.name.$invalid">
+              <small class="text-danger" ng-show="frm.name.$error.required">Please input group name</small>
+              <small class="text-danger" ng-show="frm.name.$error.maxlength">Name cannot be longer than 32 characters</small>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-primary" ng-disabled="frm.$invalid" ng-click="save();">OK</button>
+        <button class="btn btn-default" ng-click="$hide();">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
