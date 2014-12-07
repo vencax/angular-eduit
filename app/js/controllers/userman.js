@@ -18,6 +18,7 @@ angular.module("app")
   $scope.actionChoices = [
     { text: "Disable", click: "setState2Selected(1);" },
     { text: "Enable", click: "setState2Selected(0);" },
+    { "divider": true },
     { text: "Remove", click: "removeSelected();" }
   ];
 
