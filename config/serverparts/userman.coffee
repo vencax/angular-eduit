@@ -58,9 +58,8 @@ module.exports = (app) ->
     res.json(item)
 
   app.delete "#{prefix}/users/:id", (req, res) ->
-    item = _db[req.params.id]
     delete _db[req.params.id]
-    res.json(item)
+    res.status(204).end()
 
   ######## Groups
 
@@ -68,7 +67,7 @@ module.exports = (app) ->
     1: {id: 1, name: 'pupils'}
     2: {id: 2, name: 'teachers'}
     3: {id: 3, name: 'admins'}
-  _nextid = 3
+  _nextid = 4
 
   app.get "#{prefix}/groups", (req, res) ->
     res.json (v for k, v of _groups)
@@ -78,9 +77,10 @@ module.exports = (app) ->
     res.json found
 
   app.post "#{prefix}/groups", (req, res) ->
-    return res.status(400).send('ALREADY EXISTS') if req.username of _groups
-    req.id = _nextid++
-    created = _groups[req.id] = req.body
+    for k, v of _groups
+      return res.status(400).send('ALREADY EXISTS') if v.name == req.name
+    req.body.id = _nextid++
+    created = _groups[req.body.id] = req.body
     res.json(created)
 
   app.put "#{prefix}/groups/:id", (req, res) ->
@@ -90,5 +90,5 @@ module.exports = (app) ->
     res.json(item)
 
   app.delete "#{prefix}/groups/:id", (req, res) ->
-    item = _groups[req.params.id]
-    res.json(item)
+    delete _groups[req.params.id]
+    res.status(204).end()
