@@ -9,53 +9,50 @@ angular.module("app")
   '$scope', '$filter', '$modal', 'ngTableParams', 'User', 'Group',
   function($scope, $filter, $modal, NgTableParams, User, Group) {
 
-  $scope.data = User.query();
+  $scope.data = User.query(function() {
+    $scope.tableParams.reload();
+  });
   $scope.groups = Group.query();
   $scope.selected = {};
 
   $scope.actionChoices = [
-    { text: "Disable", click: "doAction(1);" },
-    { text: "Remove", click: "doAction(0);" }
+    { text: "Disable", click: "setState2Selected(1);" },
+    { text: "Enable", click: "setState2Selected(0);" },
+    { text: "Remove", click: "removeSelected();" }
   ];
 
-  function removeSelected() {
+  function performAction(cb) {
+    for(var i=0; i<$scope.data.length; i++) {
+      if($scope.data[i].id in $scope.selected) {
+        cb($scope.data[i]);
+      }
+    }
+    $scope.selected = {};
+  }
+
+  $scope.removeSelected = function() {
     if (confirm('Are you sure you want to remove all selected?')) {
-      for(var u in $scope.selected) {
+      performAction(function(user) {
         u.$remove({id: u.id});
-      }
-      $scope.selected = {};
+      });
+      $scope.tableParams.reload();
     }
-  }
+  };
 
-  function disableSelected() {
+  $scope.setState2Selected = function(state) {
     if (confirm('Are you sure you want to disable all selected?')) {
-      for(var u in $scope.selected) {
-        u.status = 1;
+      performAction(function(user) {
+        u.state = state;
         u.$update({id: u.id});
-      }
-      $scope.selected = {};
-    }
-  }
-
-  $scope.doAction = function(action) {
-    switch(action) {
-    case 0:
-      removeSelected();
-      break;
-    case 1:
-      disableSelected();
+      });
     }
   };
 
   $scope.tableParams = new NgTableParams({
-    page: 1,            // show first page
-    count: 10,          // count per page
-    filter: {
-      name: ''       // initial filter
-    },
-    sorting: {
-      ip: 'asc'     // initial sorting
-    }
+    page: 1,                    // show first page
+    count: 10,                  // count per page
+    filter: {},                 // initial filter
+    sorting: {name: 'asc'}      // initial sorting
   }, {
     total: $scope.data.length, // length of data
     getData: function($defer, params) {

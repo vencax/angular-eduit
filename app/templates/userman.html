@@ -5,33 +5,31 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-    <p>
-      <button type="button" class="btn btn-info" ng-click="showModal();">
-        <i class="glyphicon glyphicon-plus"></i> Add
+    <div class="pull-right">
+      <button ng-click="tableParams.sorting({})" class="btn btn-default ">
+        Clear sorting
       </button>
+      <button ng-click="tableParams.filter({})" class="btn btn-default">
+        Clear filter
+      </button>
+      <button type="button" class="btn btn-default" bs-dropdown="actionChoices">
+        actions <span class="caret"></span>
+      </button>
+    </div>
 
-      <div class="pull-right">
-        <button ng-click="tableParams.sorting({})" class="btn btn-default ">
-          Clear sorting
-        </button>
-        <button ng-click="tableParams.filter({})" class="btn btn-default">
-          Clear filter
-        </button>
-        <button type="button" class="btn btn-default" bs-dropdown="actionChoices">
-          actions <span class="caret"></span>
-        </button>
-      </div>
-    </p>
+    <button type="button" class="btn btn-info" ng-click="showModal();">
+      <i class="glyphicon glyphicon-plus"></i> Add
+    </button>
 
     <table ng-table="tableParams" show-filter="true" class="table table-stripped">
-      <tr ng-repeat="user in $data" ng-class="{active: host.res == true}">
+      <tr ng-repeat="user in $data" ng-class="{active: selected[user.id] == true}">
 
         <td>
           <input type="checkbox" ng-model="selected[user.id]" />
         </td>
 
-        <td data-title="'Status'" sortable="'state'">
-          <span class="glyphicon" ng-class="{'glyphicon-ok': user.state == 0, 'glyphicon-remove': user.state != 0}">
+        <td data-title="'ID'" sortable="'id'">
+          {{user.id}}
         </td>
 
         <td data-title="'Username'" sortable="'username'" filter="{ 'username': 'text' }">
@@ -48,6 +46,10 @@
 
         <td data-title="'Other groups'">
           {{ user.groups }}
+        </td>
+
+        <td data-title="'State'" sortable="'state'">
+          <span class="glyphicon" ng-class="{'glyphicon-ok': user.state == 0, 'glyphicon-remove': user.state != 0}">
         </td>
 
         <td>
