@@ -19,6 +19,13 @@ addItem = (item) ->
   _db[id] = item
   return item
 
+clone = (obj) ->
+  return obj  if obj is null or typeof (obj) isnt "object"
+  temp = new obj.constructor()
+  for key of obj
+    temp[key] = clone(obj[key])
+  temp
+
 
 module.exports = (app) ->
 
@@ -40,10 +47,14 @@ module.exports = (app) ->
       return res.status(200).json(errs)
 
   app.get "#{prefix}/users", (req, res) ->
-    res.json (v for k, v of _db)
+    rv = (clone(v) for k, v of _db)
+    for i in rv
+      delete i.password
+    res.json rv
 
   app.get "#{prefix}/users/:id", (req, res) ->
-    found = _db[req.params.id]
+    found = clone(_db[req.params.id])
+    delete found.password
     res.json found
 
   app.post "#{prefix}/users", (req, res) ->
