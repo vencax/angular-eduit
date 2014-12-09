@@ -46,29 +46,29 @@ module.exports = (app) ->
       errs.push 0 if req.body.username of _db
       return res.status(200).json(errs)
 
-  app.get "#{prefix}/users", (req, res) ->
+  app.get "#{prefix}/user", (req, res) ->
     rv = (clone(v) for k, v of _db)
     for i in rv
       delete i.password
     res.json rv
 
-  app.get "#{prefix}/users/:id", (req, res) ->
+  app.get "#{prefix}/user/:id", (req, res) ->
     found = clone(_db[req.params.id])
     delete found.password
     res.json found
 
-  app.post "#{prefix}/users", (req, res) ->
+  app.post "#{prefix}/user", (req, res) ->
     req.body.state = 0
     created = addItem(req.body)
     res.json(created)
 
-  app.put "#{prefix}/users/:id", (req, res) ->
+  app.put "#{prefix}/user/:id", (req, res) ->
     item = _db[req.params.id]
     for k, v of req.body
       item[k] = v
     res.json(item)
 
-  app.delete "#{prefix}/users/:id", (req, res) ->
+  app.delete "#{prefix}/user/:id", (req, res) ->
     delete _db[req.params.id]
     res.status(204).end()
 
@@ -80,26 +80,26 @@ module.exports = (app) ->
     3: {id: 3, name: 'admins'}
   _nextid = 4
 
-  app.get "#{prefix}/groups", (req, res) ->
+  app.get "#{prefix}/group", (req, res) ->
     res.json (v for k, v of _groups)
 
-  app.get "#{prefix}/groups/:id", (req, res) ->
+  app.get "#{prefix}/group/:id", (req, res) ->
     found = _db[req.params.id]
     res.json found
 
-  app.post "#{prefix}/groups", (req, res) ->
+  app.post "#{prefix}/group", (req, res) ->
     for k, v of _groups
       return res.status(400).send('ALREADY EXISTS') if v.name == req.name
     req.body.id = _nextid++
     created = _groups[req.body.id] = req.body
     res.json(created)
 
-  app.put "#{prefix}/groups/:id", (req, res) ->
+  app.put "#{prefix}/group/:id", (req, res) ->
     item = _groups[req.params.id]
     for k, v of req.body
       item[k] = v
     res.json(item)
 
-  app.delete "#{prefix}/groups/:id", (req, res) ->
+  app.delete "#{prefix}/group/:id", (req, res) ->
     delete _groups[req.params.id]
     res.status(204).end()
