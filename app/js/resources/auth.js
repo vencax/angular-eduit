@@ -2,7 +2,7 @@ angular.module("app")
 
 .factory("User", function($resource, Conf) {
 
-  return $resource(Conf.userman_apiurl + '/users/:id', {}, {
+  return $resource(Conf.userman_apiurl + '/user/:id', {}, {
     'update': { method:'PUT' }
   });
 
@@ -10,7 +10,7 @@ angular.module("app")
 
 .factory("Group", function($resource, Conf) {
 
-  return $resource(Conf.userman_apiurl + '/groups/:id', {}, {
+  return $resource(Conf.userman_apiurl + '/group/:id', {}, {
     'update': { method:'PUT' }
   });
 
