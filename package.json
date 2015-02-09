@@ -3,6 +3,10 @@
   "title": "Angular.JS client to node-eduit-server",
   "version": "0.0.1",
   "author": "Vaclav Klecanda",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vencax/angular-eduit.git"
+  },
   "devDependencies": {
     "coffee-script": "^1.6.3",
     "jasmine-given": "^2.6.2",
