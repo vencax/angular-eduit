@@ -28,7 +28,7 @@
     <script>
       angular.module('app').constant('Conf', {
         userman_apiurl: '<%= rest.userman_apiurl %>',
-        dhcpdconfhost: '<%= rest.dhcpd_url %>'
+        dhcpd_apiurl: '<%= rest.dhcpd_apiurl %>'
       });
     </script>
 
