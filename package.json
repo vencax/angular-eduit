@@ -1,7 +1,7 @@
 {
   "name": "lineman-eduit",
   "title": "Angular.JS client to node-eduit-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Vaclav Klecanda",
   "repository": {
     "type": "git",
