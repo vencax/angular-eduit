@@ -17,7 +17,7 @@ angular.module("app")
   function($scope, $filter, $modal, $routeParams, NgTableParams, DHCPDHost, HostStateSrvc)
 {
 
-  $scope.data = DHCPDHost.query();
+  $scope.data = DHCPDHost.query({net: $routeParams.net});
   $scope.route = $routeParams;
 
   $scope.tableParams = new NgTableParams({
@@ -36,7 +36,7 @@ angular.module("app")
 
       if(filter.mac) {
         // leave only hexa chars
-        filter.mac = filter.mac.replace(/[^A-Fa-f0-9]/g, "");
+        filter.mac = filter.mac.replace(/[^A-Fa-f0-9]/g, "").toLowerCase();
       }
 
       // use build-in angular filter
@@ -60,7 +60,6 @@ angular.module("app")
 
     if(host) {
       $scope.item = new DHCPDHost(host);
-      $scope.item.ip = parseInt($scope.item.ip.split('.')[3], 10);
     } else {
       $scope.item = new DHCPDHost();
     }
@@ -88,21 +87,24 @@ angular.module("app")
       }
 
       var item = new DHCPDHost($scope.item);
-      item.ip = $scope.route.net + '.' + item.ip;
 
       if('res' in item && item.res === true) {
 
         if(item.mac !== host.mac) {
           // we have chaged primary ID, so remove the old item and add a newone
-          host.$remove({dhcphost: host.mac}, function(data){
-            item.$save(_on_persisted, _err_handler);
+          host.$remove({
+            dhcphost: host.mac, net: $routeParams.net
+          }, function(data){
+            item.$save({net: $routeParams.net}, _on_persisted, _err_handler);
           }, _err_handler);
         } else {
-          item.$update({dhcphost:$scope.item.mac}, _on_persisted, _err_handler);
+          item.$update({
+            dhcphost:$scope.item.mac, net: $routeParams.net
+          }, _on_persisted, _err_handler);
         }
 
       } else {
-        item.$save(_on_persisted, _err_handler);
+        item.$save({net: $routeParams.net}, _on_persisted, _err_handler);
       }
 
     };
@@ -118,7 +120,7 @@ angular.module("app")
 
   $scope.remove = function($event, host){
     if (confirm('Are you sure you want to remove reservation for ' + host.name)) {
-      host.$remove({dhcphost: host.mac});
+      host.$remove({dhcphost: host.mac, net: $routeParams.net});
     } else {
       // Do nothing!
     }

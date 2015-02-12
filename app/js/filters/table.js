@@ -15,9 +15,9 @@ angular.module('app')
   };
 })
 
-.filter('ipwithoutnetwork', function(){
-  return function(ip) {
-    return ip.split(".")[3];
+.filter('ipwithnetwork', function(){
+  return function(ip, net) {
+    return net + "." + ip;
   };
 })
 
