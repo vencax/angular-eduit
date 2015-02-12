@@ -1,0 +1,24 @@
+<ol class="breadcrumb">
+  <li><a href="/"><i class="glyphicon glyphicon-home"></i></a></li>
+  <li class="active">'PCMAN'</li>
+</ol>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <table class="table table-stripped">
+      <tr ng-repeat="net in data">
+
+        <td>{{ net }}</td>
+
+        <td>
+          <a href="{{path}}/{{ net }}/" class="btn btn-default">
+            <i class="glyphicon glyphicon-pencil"></i> Administrate
+          </a>
+        </td>
+
+      </tr>
+    </table>
+
+  </div>
+</div>

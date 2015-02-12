@@ -23,6 +23,11 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
   });
 
   $routeProvider.when('/pcman', {
+    templateUrl: 'pcmanindex.html',
+    controller: 'PcmanIndexCtlr'
+  });
+
+  $routeProvider.when('/pcman/:net', {
     templateUrl: 'pcman.html',
     controller: 'PcmanCtlr'
   });

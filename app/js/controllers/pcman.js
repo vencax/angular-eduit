@@ -5,9 +5,20 @@ var _err_handler = function(err){
   alert('request failed: ' + err.statusText + '\n\n' + err.data);
 };
 
-angular.module("app").controller('PcmanCtlr', ['$scope', '$filter', '$modal', 'ngTableParams', 'DHCPDHost', 'HostStateSrvc', function($scope, $filter, $modal, NgTableParams, DHCPDHost, HostStateSrvc) {
+angular.module("app")
+
+.controller('PcmanIndexCtlr', function($scope, $location) {
+  $scope.path = $location.path();
+  $scope.data = ['192.168.1'];
+})
+
+.controller('PcmanCtlr', [
+  '$scope', '$filter', '$modal', '$routeParams', 'ngTableParams', 'DHCPDHost', 'HostStateSrvc',
+  function($scope, $filter, $modal, $routeParams, NgTableParams, DHCPDHost, HostStateSrvc)
+{
 
   $scope.data = DHCPDHost.query();
+  $scope.route = $routeParams;
 
   $scope.tableParams = new NgTableParams({
     page: 1,            // show first page
@@ -21,9 +32,16 @@ angular.module("app").controller('PcmanCtlr', ['$scope', '$filter', '$modal', 'n
   }, {
     total: $scope.data.length, // length of data
     getData: function($defer, params) {
+      var filter = params.filter();
+
+      if(filter.mac) {
+        // leave only hexa chars
+        filter.mac = filter.mac.replace(/[^A-Fa-f0-9]/g, "");
+      }
+
       // use build-in angular filter
-      var filteredData = params.filter() ?
-              $filter('filter')($scope.data, params.filter()) :
+      var filteredData = filter ?
+              $filter('filter')($scope.data, filter) :
               $scope.data;
       var orderedData = params.sorting() ?
               $filter('orderBy')(filteredData, params.orderBy()) :
@@ -40,7 +58,12 @@ angular.module("app").controller('PcmanCtlr', ['$scope', '$filter', '$modal', 'n
 
   $scope.showModal = function(host) {
 
-    $scope.item = host ? new DHCPDHost(host) : new DHCPDHost();
+    if(host) {
+      $scope.item = new DHCPDHost(host);
+      $scope.item.ip = parseInt($scope.item.ip.split('.')[3], 10);
+    } else {
+      $scope.item = new DHCPDHost();
+    }
 
     pcEditModal.$promise.then(pcEditModal.show);
 
@@ -56,27 +79,30 @@ angular.module("app").controller('PcmanCtlr', ['$scope', '$filter', '$modal', 'n
 
       function _on_persisted(data) {
         if(host) {
-          _copyHost($scope.item, host);
+          _copyHost(data, host);
         } else {
-          $scope.data.push($scope.item);
+          $scope.data.push(data);
           $scope.tableParams.reload();
         }
         pcEditModal.hide();
       }
 
-      if('res' in $scope.item && $scope.item.res === true) {
+      var item = new DHCPDHost($scope.item);
+      item.ip = $scope.route.net + '.' + item.ip;
 
-        if($scope.item.mac !== host.mac) {
+      if('res' in item && item.res === true) {
+
+        if(item.mac !== host.mac) {
           // we have chaged primary ID, so remove the old item and add a newone
           host.$remove({dhcphost: host.mac}, function(data){
-            $scope.item.$save(_on_persisted, _err_handler);
+            item.$save(_on_persisted, _err_handler);
           }, _err_handler);
         } else {
-          $scope.item.$update({dhcphost:$scope.item.mac}, _on_persisted, _err_handler);
+          item.$update({dhcphost:$scope.item.mac}, _on_persisted, _err_handler);
         }
 
       } else {
-        $scope.item.$save(_on_persisted, _err_handler);
+        item.$save(_on_persisted, _err_handler);
       }
 
     };

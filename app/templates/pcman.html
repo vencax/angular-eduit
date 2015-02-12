@@ -1,13 +1,9 @@
 
-<p class="info" ng-hide="{{cfg.message}}" ng-model="cfg.message"></p>
-
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-
-
-  </div>
-</div>
+<ol class="breadcrumb">
+  <li><a href="/"><i class="glyphicon glyphicon-home"></i></a></li>
+  <li><a href="/pcman">'PCMAN'</a></li>
+  <li class="active">{{route.net}}</li>
+</ol>
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -28,11 +24,11 @@
         </td>
 
         <td data-title="'Name'" sortable="'name'" filter="{ 'name': 'text' }">
-          {{host.name}}
+          {{ host.name }}
         </td>
 
         <td data-title="'IP address'" sortable="'ip'" filter="{ 'ip': 'text' }">
-          {{host.ip}}
+          {{ host.ip | ipwithoutnetwork }}
         </td>
 
         <td data-title="'MAC address'" filter="{ 'mac': 'text' }">
@@ -40,10 +36,39 @@
         </td>
 
         <td data-title="'description'" filter="{ 'desc': 'text' }">
-          {{host.desc}}
+          {{ host.desc }}
         </td>
 
         <td>
+          <!-- <div class="btn-group" dropdown>
+            <button type="button" class="btn btn-sm btn-default dropdown-toggle" dropdown-toggle>
+              <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li ng-hide="host.res"><a href="#" data-ng-click="showModal(host);">
+                <i class="glyphicon glyphicon-pushpin"></i> Edit
+              </a></li>
+
+              <li ng-show="host.res"><a href="#" data-ng-click="report(film);">
+                <i class="glyphicon glyphicon-pushpin"></i> Make reservation
+              </a></li>
+
+              <li class="error" ng-show="host.res">
+                <a href="#" data-ng-click="remove($event, host);">
+                  <i class="glyphicon glyphicon-remove"></i> Remove reservation
+                </a>
+              </li>
+
+              <li class="divider"></li>
+
+              <li class="error" ng-show="host.res">
+                <a href="#" data-ng-click="wakeHost($event, host);">
+                  <i class="glyphicon glyphicon-off"></i> Wakeup
+                </a>
+              </li>
+            </ul>
+          </div> -->
+
             <button ng-hide="host.res" type="button" class="btn btn-xs btn-info"
                     ng-click="showModal(host);">
               <i class="glyphicon glyphicon-pushpin"></i> Make reservation

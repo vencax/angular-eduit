@@ -15,6 +15,13 @@ angular.module('app')
   };
 })
 
+.filter('ipwithoutnetwork', function(){
+  return function(ip) {
+    return ip.split(".")[3];
+  };
+})
+
+
 .filter('groupname', function(Group) {
   var grIndex = {};
 
