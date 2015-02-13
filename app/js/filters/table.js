@@ -15,9 +15,9 @@ angular.module('app')
   };
 })
 
-.filter('ipwithnetwork', function(){
-  return function(ip, net) {
-    return net + "." + ip;
+.filter('networkpart', function(){
+  return function(net) {
+    return net.split('-').join('.') + '/24';
   };
 })
 

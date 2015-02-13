@@ -7,7 +7,7 @@ addItem = (item, net) ->
   return item
 
 
-net = '192.168.1'
+net = '192-168-1'
 
 genItems = (cnt) ->
   for idx in [1..cnt]
@@ -57,7 +57,7 @@ module.exports = (app) ->
     for n,net of _db
       if net[req.params.dhcphost]
         item = _db[req.params.dhcphost]
-        
+
     return res.send 404 unless item?
     item.state = req.body.state
     res.send 200

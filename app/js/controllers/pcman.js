@@ -9,7 +9,7 @@ angular.module("app")
 
 .controller('PcmanIndexCtlr', function($scope, $location) {
   $scope.path = $location.path();
-  $scope.data = ['192.168.1'];
+  $scope.data = ['192-168-1'];
 })
 
 .controller('PcmanCtlr', [

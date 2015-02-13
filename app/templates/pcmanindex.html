@@ -9,7 +9,7 @@
     <table class="table table-stripped">
       <tr ng-repeat="net in data">
 
-        <td>{{ net }}</td>
+        <td>{{ net | networkpart }}</td>
 
         <td>
           <a href="{{path}}/{{ net }}/" class="btn btn-default">
