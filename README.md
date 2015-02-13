@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/linemanjs/lineman-angular-template.png?branch=master)](https://travis-ci.org/linemanjs/lineman-angular-template)
 
+## Version compatibility
+
+- [dhcp-rest-conf](https://github.com/vencax/node-dhcp-rest-conf/tree/0.4.0)
+
 This is a project template for Angular JS applications using [Lineman](http://www.linemanjs.com).
 
 It includes the following features:
