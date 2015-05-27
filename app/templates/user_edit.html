@@ -13,7 +13,7 @@
           <div class="form-group has-feedback" ng-class="{'has-error': frm.username.$invalid, 'has-success': frm.username.$valid}">
             <label class="control-label" for="username">User name</label>
             <input name="username" type="text" class="form-control" ng-model="item.username"
-              required ng-minlength=5 ng-maxlength=18 data-unique="/userman_api/check"
+              required ng-minlength=5 ng-maxlength=18 data-unique="username"
               ng-pattern="/^[0-9a-zA-Z]*$/" placeholder="Username">
             <span class="glyphicon form-control-feedback"
               ng-class="{'glyphicon-ok': frm.username.$valid, 'glyphicon-remove': frm.username.$invalid}">

@@ -13,7 +13,9 @@ angular.module("app").directive('match', [function () {
   };
 }]);
 
-angular.module("app").directive('unique', ['$http', function($http) {
+angular.module("app").directive('unique', ['$http', 'Conf',
+
+function($http, Conf) {
   return {
     require: 'ngModel',
     link: function(scope, elem, attrs, ctrl) {
@@ -32,7 +34,7 @@ angular.module("app").directive('unique', ['$http', function($http) {
         scope.busy = true;
         var data = {};
         data[attrs['name']] = value;
-        $http.post(attrs.unique, data)
+        $http.post(Conf.userman_apiurl + '/check', data)
           .success(function(data) {
             ctrl.$setValidity('unique', data.length === 0);
             scope.busy = false;
