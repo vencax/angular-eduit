@@ -39,7 +39,7 @@ module.exports = (lineman) ->
   less:
     options:
       paths: app.less.options.paths.concat([
-        "vendor/bower/bootstrap/less/"
+        "node_modules/bootstrap/less/"
       ])
 
   server:

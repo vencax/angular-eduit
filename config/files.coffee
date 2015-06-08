@@ -12,27 +12,26 @@ module.exports = (lineman) ->
   # copy bootstrap icons
   lineman.config.application.copy.dist.files.push
     expand: true
-    cwd: "vendor/bower/bootstrap/fonts"
+    cwd: "node_modules/bootstrap/fonts"
     src: "**"
     dest: 'dist/fonts'
   lineman.config.application.copy.dev.files.push
     expand: true
-    cwd: "vendor/bower/bootstrap/fonts"
+    cwd: "node_modules/bootstrap/fonts"
     src: "**"
     dest: 'generated/fonts'
 
   # Override file patterns here
   js:
     vendor: [
-      "vendor/bower/angular/angular.js",
-      "vendor/bower/angular-resource/angular-resource.js",
-      "vendor/bower/angular-route/angular-route.js",
-      "vendor/bower/ng-table/ng-table.js",
-      "vendor/bower/ngstorage/ngStorage.js",
-      "vendor/bower/moment/min/moment-with-locales.js",
-      "vendor/bower/angular-animate/angular-animate.js",
-      "vendor/bower/angular-strap/dist/angular-strap.js",
-      "vendor/bower/angular-strap/dist/angular-strap.tpl.js"
+      "node_modules/angular/angular.js"
+      "node_modules/angular-resource/angular-resource.js"
+      "node_modules/angular-route/angular-route.js"
+      "node_modules/ng-table/dist/ng-table.js"
+      "node_modules/ngstorage/ngStorage.js"
+      "node_modules/moment/min/moment-with-locales.js"
+      "node_modules/angular-strap/dist/angular-strap.js"
+      "node_modules/angular-strap/dist/angular-strap.tpl.js"
     ],
     app: [
       "app/js/app.js",
@@ -41,5 +40,5 @@ module.exports = (lineman) ->
 
   css:
     vendor: [
-      "vendor/bower/ng-table/ng-table.css"
+      "node_modules/ng-table/dist/ng-table.css"
     ]
