@@ -10,9 +10,12 @@
       <div class="modal-body">
         <form name="frm">
 
-          <div class="form-group has-feedback" ng-class="{'has-error': frm.username.$invalid, 'has-success': frm.username.$valid}">
+          <div class="form-group has-feedback"
+            ng-show="item.id == undefined"
+            ng-class="{'has-error': frm.username.$invalid, 'has-success': frm.username.$valid}">
             <label class="control-label" for="username">User name</label>
-            <input name="username" type="text" class="form-control" ng-model="item.username"
+            <input name="username" type="text" class="form-control"
+              ng-model="item.username"
               required ng-minlength=5 ng-maxlength=18 data-unique="username"
               ng-pattern="/^[0-9a-zA-Z]*$/" placeholder="Username">
             <span class="glyphicon form-control-feedback"
@@ -29,7 +32,7 @@
 
           <div class="form-group has-feedback" ng-class="{'has-error': frm.name.$invalid, 'has-success': frm.name.$valid}">
             <label class="control-label" for="name">Name</label>
-            <input name="name" type="text" class="form-control" ng-model="item.name" ng-maxlength=32 required placeholder="Name">
+            <input name="name" type="text" class="form-control" ng-model="item.realname" ng-maxlength=32 required placeholder="Name">
             <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok': frm.name.$valid, 'glyphicon-remove': frm.name.$invalid}"></span>
             <div class="error-container" ng-show="frm.name.$invalid">
               <small class="text-danger" ng-show="frm.name.$error.required">Please input full name</small>
@@ -73,7 +76,7 @@
                 <label class="control-label">Primary group</label>
 
                 <button type="button" class="btn btn-default" ng-model="item.gid"
-                  ng-options="g.id as g.name for g in groups" bs-select>
+                  bs-options="g.id as g.name for g in groups" bs-select>
                   {{ groupname(item.gid) }} <span class="caret"></span>
                 </button>
               </div>
@@ -86,7 +89,7 @@
                 <label class="control-label">Other groups</label>
 
                 <button type="button" class="btn btn-default" ng-model="item.groups"
-                  data-multiple="1" ng-options="g.id as g.name for g in groups"
+                  data-multiple="1" bs-options="g.id as g.name for g in groups"
                   placeholder="no other groups" bs-select>
                   Action <span class="caret"></span>
                 </button>
