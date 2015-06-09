@@ -8,7 +8,7 @@ user =
   password: 'secretwhisper'
   gid: 2
   groups: [3, 4]
-  state: 0
+  state: 'A'
 
 _db = {0: user}
 _nextId=1
