@@ -31,11 +31,9 @@ module.exports = (app) ->
   prefix = '/userman_api'
 
   app.post "#{prefix}/login", (req, res) ->
-    res.json({
-      first_name: 'Gandalf', last_name: 'The Gray',
-      role: 0, uname: 'gandalf',
-      token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mywi"
-    })
+    u = user
+    u.token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mywi"
+    res.json(u)
 
   app.post "#{prefix}/logout", (req, res) ->
     res.json({ message: 'logging out!'})

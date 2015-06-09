@@ -22,8 +22,8 @@ angular.module("app")
     },
 
 
-    changePwd: function(pwd, cb) {
-      $http.post(Conf.userman_apiurl + '/setpasswd', {'passwd': pwd})
+    changeProfile: function(profile, cb) {
+      $http.put(Conf.userman_apiurl + '/setpasswd', profile)
         .success(function(data) {
           return cb(null, data);
         })
