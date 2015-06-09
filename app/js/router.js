@@ -13,22 +13,22 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
   });
 
   $routeProvider.when('/userman', {
-    templateUrl: 'userman.html',
+    templateUrl: 'users/userman.html',
     controller: 'UsermanCtlr'
   });
 
   $routeProvider.when('/groupman', {
-    templateUrl: 'groupman.html',
+    templateUrl: 'groups/groupman.html',
     controller: 'GroupmanCtlr'
   });
 
   $routeProvider.when('/pcman', {
-    templateUrl: 'pcmanindex.html',
+    templateUrl: 'pcs/pcmanindex.html',
     controller: 'PcmanIndexCtlr'
   });
 
   $routeProvider.when('/pcman/:net', {
-    templateUrl: 'pcman.html',
+    templateUrl: 'pcs/pcman.html',
     controller: 'PcmanCtlr'
   });
 

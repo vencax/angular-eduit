@@ -80,7 +80,7 @@ angular.module("app")
   });
 
   var myModal = $modal({
-    scope: $scope, template: 'user_edit.html', show: false
+    scope: $scope, template: 'users/user_edit.html', show: false
   });
 
   $scope.showModal = function(user) {

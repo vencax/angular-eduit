@@ -53,7 +53,7 @@ angular.module("app")
   });
 
   var pcEditModal = $modal({
-    scope: $scope, template: 'pc_edit.html', show: false
+    scope: $scope, template: 'pcs/pc_edit.html', show: false
   });
 
   $scope.showModal = function(host) {

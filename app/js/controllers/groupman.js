@@ -66,7 +66,7 @@ angular.module("app")
   });
 
   var myModal = $modal({
-    scope: $scope, template: 'group_edit.html', show: false
+    scope: $scope, template: 'groups/group_edit.html', show: false
   });
 
   $scope.showModal = function(group) {
