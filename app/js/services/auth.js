@@ -3,11 +3,18 @@ angular.module("app")
 
 .factory('AuthService', function($http, $window, SessionService, Conf) {
 
+  function _initUser(user) {
+    if(user.gid === Conf.adminGID || user.groups.indexOf(Conf.adminGID) >= 0) {
+      user.is_admin = true;
+    }
+  }
+
   // these routes map to stubbed API endpoints in config/server.js
   return {
     login: function(credentials, done) {
       $http.post(Conf.userman_apiurl + '/login', credentials)
         .success(function(user) {
+          _initUser(user);
           SessionService.setCurrentUser(user, user.token);
           return done(null, user);
         })

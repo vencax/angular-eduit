@@ -6,7 +6,7 @@ user =
   email: 'g@nda.lf'
   password: 'secretwhisper'
   gid: 2
-  groups: [3, 4]
+  groups: [3, 0]
   state: 'A'
 
 _db = {0: user}

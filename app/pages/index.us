@@ -28,7 +28,8 @@
     <script>
       angular.module('app').constant('Conf', {
         userman_apiurl: '<%= rest.userman_apiurl %>',
-        dhcpd_apiurl: '<%= rest.dhcpd_apiurl %>'
+        dhcpd_apiurl: '<%= rest.dhcpd_apiurl %>',
+        adminGID: <%= rest.adminGID %>
       });
     </script>
 
