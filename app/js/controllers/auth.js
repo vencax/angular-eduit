@@ -1,6 +1,6 @@
 angular.module("app")
 
-.controller('LoginController', function($scope, $rootScope, $location, AuthService) {
+.controller('LoginController', function($scope, $rootScope, $location, AuthService, visor) {
 
   $scope.credentials = { username: "", password: "" };
 
@@ -9,8 +9,8 @@ angular.module("app")
       if (err) {
         $scope.error = err;
       } else {
-        $rootScope.onLoggedIn(user);
-        $location.path("/");
+        $rootScope.loggedUser = user;
+        visor.setAuthenticated(user);
       }
     });
   };

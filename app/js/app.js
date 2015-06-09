@@ -1,25 +1,19 @@
 var app = angular.module("app", [
-  "ngResource", "ngRoute", "ngTable", "ngStorage", "mgcrea.ngStrap", "gettext"
+  "ngResource", "visor", "ngRoute",
+  "ngTable", "ngStorage", "mgcrea.ngStrap", "gettext"
 ]);
 
-app.run(function($rootScope, $location, SessionService, AuthService) {
+app.run(function($rootScope, $location, SessionService, AuthService, visor) {
 
   moment.locale(navigator.language);
 
   $rootScope.logout = function() {
     return AuthService.logout(function() {
+      visor.setUnauthenticated();
       $rootScope.loggedUser = '';
-      return $location.path("/login");
+      $location.path("/login");
     });
   };
-
-  $rootScope.onLoggedIn = function(user) {
-    $rootScope.loggedUser = user;
-  };
-
-  if(SessionService.getCurrentUser()) {
-    $rootScope.onLoggedIn(SessionService.getCurrentUser());
-  }
 
   // adds some basic utilities to the $rootScope for debugging purposes
   $rootScope.log = function(thing) {

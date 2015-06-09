@@ -23,7 +23,8 @@
     "ng-table": "^0.5.4",
     "ngstorage": "^0.3.4",
     "protractor": "^1.2.0-beta1",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "visor": "git+https://github.com/Illniyar/visor"
   },
   "scripts": {
     "start": "lineman run",
