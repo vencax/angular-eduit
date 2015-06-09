@@ -32,6 +32,7 @@ module.exports = (lineman) ->
       "node_modules/moment/min/moment-with-locales.js"
       "node_modules/angular-strap/dist/angular-strap.js"
       "node_modules/angular-strap/dist/angular-strap.tpl.js"
+      "node_modules/angular-gettext/dist/angular-gettext.js"
     ],
     app: [
       "app/js/app.js",
