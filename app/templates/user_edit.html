@@ -74,11 +74,8 @@
 
               <div class="form-group">
                 <label class="control-label">Primary group</label>
-
-                <button type="button" class="btn btn-default" ng-model="item.gid"
-                  bs-options="g.id as g.name for g in groups" bs-select>
-                  {{ groupname(item.gid) }} <span class="caret"></span>
-                </button>
+                <select class="form-control" ng-model="item.gid"
+                  ng-options="g.id as g.name for g in groups"></select>
               </div>
 
             </div>
@@ -88,11 +85,8 @@
               <div class="form-group">
                 <label class="control-label">Other groups</label>
 
-                <button type="button" class="btn btn-default" ng-model="item.groups"
-                  data-multiple="1" bs-options="g.id as g.name for g in groups"
-                  placeholder="no other groups" bs-select>
-                  Action <span class="caret"></span>
-                </button>
+                <select multiple class="form-control" ng-model="item.groups"
+                  ng-options="g.id as g.name for g in groups"></select>
               </div>
 
             </div>
