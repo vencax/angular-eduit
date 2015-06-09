@@ -44,16 +44,12 @@
           {{ user.gid | groupname }}
         </td>
 
-        <td data-title="'Other groups'">
-          {{ user.groups | groupname }}
-        </td>
-
         <td data-title="'State'" sortable="'state'">
           <span class="glyphicon" ng-class="{'glyphicon-ok': user.state == 'A', 'glyphicon-remove': user.state != 'A'}">
         </td>
 
         <td>
-          <button type="button" class="btn" data-ng-click="showModal(user);">
+          <button type="button" class="btn btn-sm" data-ng-click="showModal(user);">
             <i class="glyphicon glyphicon-pencil"></i> edit
           </button>
         </td>

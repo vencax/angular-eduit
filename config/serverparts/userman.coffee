@@ -2,8 +2,7 @@
 user =
   id: 0
   username: 'gandalf'
-  first_name: 'gandalf'
-  last_name: 'the gray'
+  realname: 'gandalf the gray'
   email: 'g@nda.lf'
   password: 'secretwhisper'
   gid: 2

@@ -85,8 +85,10 @@ angular.module("app")
 
   $scope.showModal = function(user) {
 
-    $scope.item = user ? user : new User();
-    if(! user) {
+    if(user) {
+      $scope.item = User.get({id: user.id});
+    } else {
+      $scope.item = new User();
       $scope.item.gid = $scope.groups[0].id;
     }
 
@@ -108,13 +110,6 @@ angular.module("app")
       }
     };
 
-  };
-
-  $scope.groupname = function(gid) {
-    for(var i; i<$scope.groups.length; i++) {
-      var g = $scope.groups[i];
-      if(g.id === gid) { return g.name; }
-    }
   };
 
 }]);
