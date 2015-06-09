@@ -30,6 +30,9 @@ function($http, Conf) {
           // empty username is caught by required directive
           return;
         }
+        if (scope.$eval('item').id !== undefined) {
+          return;  // we don't want to perform unique check on update
+        }
 
         scope.busy = true;
         var data = {};
