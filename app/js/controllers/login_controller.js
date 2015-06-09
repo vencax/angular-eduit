@@ -29,7 +29,8 @@ angular.module("app")
 
   $scope.save = function() {
     $scope.working = true;
-    AuthService.changeProfile($scope.item, function(err, profile) {
+    AuthService.changeProfile($scope.item, $rootScope.loggedUser,
+        function(err, profile) {
       $location.path('/');
     });
   };

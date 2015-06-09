@@ -21,9 +21,9 @@ angular.module("app")
       return done();
     },
 
-
-    changeProfile: function(profile, cb) {
-      $http.put(Conf.userman_apiurl + '/setpasswd', profile)
+    changeProfile: function(profile, loggedUser, cb) {
+      var url = Conf.userman_apiurl + '/user/' + loggedUser.id;
+      $http.put(url, profile)
         .success(function(data) {
           return cb(null, data);
         })
