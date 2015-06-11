@@ -20,7 +20,7 @@ module.exports = (lineman) ->
   backendConfig =
     userman_apiurl: process.env.USERMAN_APIURL || '/userman_api'
     dhcpd_apiurl: process.env.DHCPD_APIURL || '/dhcpdman_api'
-    adminGID: process.env.DHCPD_APIURL || 0
+    adminGID: process.env.ADMIN_GID || 0
 
   # Context for index.us
   app.pages.dev.context.rest = backendConfig
