@@ -48,6 +48,10 @@ module.exports = (lineman) ->
     web: { port: process.env.PORT || 8000; }
     # API Proxying
 
+  uglify:
+    options:
+      mangle: false
+
     # During development, you'll likely want to make XHR (AJAX) requests to an API on the same
     # port as your lineman development server. By enabling the API proxy and setting the port, all
     #requests for paths that don't match a static asset in ./generated will be forwarded to
