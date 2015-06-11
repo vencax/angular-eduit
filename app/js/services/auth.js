@@ -4,6 +4,7 @@ angular.module("app")
 .factory('AuthService', function($http, $window, SessionService, Conf) {
 
   function _initUser(user) {
+    user.groups = user.groups || [];
     if(user.gid === Conf.adminGID || user.groups.indexOf(Conf.adminGID) >= 0) {
       user.is_admin = true;
     }
