@@ -1,7 +1,7 @@
 
 <ol class="breadcrumb">
   <li><a href="/"><i class="glyphicon glyphicon-home"></i></a></li>
-  <li><a href="/pcman">'PCMAN'</a></li>
+  <li><a href="/pcman">{{'host management'|translate}}</a></li>
   <li class="active">{{route.net}}</li>
 </ol>
 
@@ -10,10 +10,10 @@
 
     <p>
       <button type="button" class="btn btn-info" ng-click="showModal();">
-        <i class="glyphicon glyphicon-pushpin"></i> Add
+        <i class="glyphicon glyphicon-pushpin"></i> {{'add'||translate}}
       </button>
-      <button ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Clear sorting</button>
-      <button ng-click="tableParams.filter({})" class="btn btn-default pull-right">Clear filter</button>
+      <button ng-click="tableParams.sorting({})" class="btn btn-default pull-right" translate>clear sorting</button>
+      <button ng-click="tableParams.filter({})" class="btn btn-default pull-right" translate>clear filter</button>
     </p>
 
     <table ng-table="tableParams" show-filter="true" class="table table-stripped">
@@ -71,23 +71,23 @@
 
             <button ng-hide="host.res" type="button" class="btn btn-xs btn-info"
                     ng-click="showModal(host);">
-              <i class="glyphicon glyphicon-pushpin"></i> Make reservation
+              <i class="glyphicon glyphicon-pushpin"></i> {{'make reservation'|translate}}
             </button>
 
             <button ng-show="host.res" type="button" class="btn btn-xs btn-info"
                     ng-click="showModal(host);">
-              <i class="glyphicon glyphicon-pushpin"></i> Edit
+              <i class="glyphicon glyphicon-pushpin"></i> {{'edit'|translate}}
             </button>
 
             <button ng-show="host.res" type="button" class="btn btn-xs btn-danger"
                     ng-click="remove($event, host);">
-              <i class="glyphicon glyphicon-remove"></i> Remove reservation
+              <i class="glyphicon glyphicon-remove"></i> {{'remove reservation'|translate}}
             </button>
         </td>
 
         <td>
             <button type="button" class="btn btn-xs btn-success" ng-click="wakeHost($event, host);">
-              <i class="glyphicon glyphicon-off"></i> Wakeup
+              <i class="glyphicon glyphicon-off"></i> {{'wakeup'|translate}}
             </button>
         </td>
 

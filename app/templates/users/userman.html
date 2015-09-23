@@ -6,11 +6,11 @@
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
     <div class="pull-right">
-      <button ng-click="tableParams.sorting({})" class="btn btn-default ">
-        Clear sorting
+      <button ng-click="tableParams.sorting({})" class="btn btn-default " translate>
+        clear sorting
       </button>
-      <button ng-click="tableParams.filter({})" class="btn btn-default">
-        Clear filter
+      <button ng-click="tableParams.filter({})" class="btn btn-default" translate>
+        clear filter
       </button>
       <button type="button" class="btn btn-default" bs-dropdown="actionChoices">
         actions <span class="caret"></span>
@@ -18,7 +18,7 @@
     </div>
 
     <button type="button" class="btn btn-info" ng-click="showModal();">
-      <i class="glyphicon glyphicon-plus"></i> Add
+      <i class="glyphicon glyphicon-plus"></i> {{'add'|translate}}
     </button>
 
     <table ng-table="tableParams" show-filter="true" class="table table-stripped">
@@ -50,7 +50,7 @@
 
         <td>
           <button type="button" class="btn btn-sm" data-ng-click="showModal(user);">
-            <i class="glyphicon glyphicon-pencil"></i> edit
+            <i class="glyphicon glyphicon-pencil"></i> {{'edit'|translate}}
           </button>
         </td>
 

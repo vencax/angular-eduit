@@ -3,9 +3,13 @@ var app = angular.module("app", [
   "ngTable", "ngStorage", "mgcrea.ngStrap", "gettext"
 ]);
 
-app.run(function($rootScope, $location, SessionService, AuthService, visor) {
+app.run(function($rootScope, $location, $window, SessionService, AuthService, visor, gettextCatalog) {
 
+  var lang = $window.navigator.userLanguage || $window.navigator.language;
   moment.locale(navigator.language);
+  lang = lang.split('-')[0];
+  lang = lang || 'en'; // fallback
+  gettextCatalog.setCurrentLanguage(lang);
 
   $rootScope.logout = function() {
     return AuthService.logout(function() {

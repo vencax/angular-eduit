@@ -1,19 +1,19 @@
 
 <ul class="nav navbar-nav">
-  <li class="active"><a href="/">Home</a></li>
-  <li ng-show="loggedUser.is_admin"><a href="/userman">Userman</a></li>
-  <li ng-show="loggedUser.is_admin"><a href="/groupman">Groupman</a></li>
-  <li ng-show="loggedUser.is_admin"><a href="/pcman">PCman</a></li>
+  <li class="active"><a href="/">{{'home'|translate}}</a></li>
+  <li ng-show="loggedUser.is_admin"><a href="/userman">{{'user management'|translate}}</a></li>
+  <li ng-show="loggedUser.is_admin"><a href="/groupman">{{'group management'|translate}}</a></li>
+  <li ng-show="loggedUser.is_admin"><a href="/pcman">{{'host management'|translate}}</a></li>
 </ul>
 
 <ul class="nav navbar-nav navbar-right">
 
   <li><p class="navbar-text">
-    Signed in as: <a href="/profile">{{ loggedUser.realname }}</a>
+    {{'signed in as'|translate}}: <a href="/profile">{{ loggedUser.realname }}</a>
   </p></li>
   <li>
     <button type="button" class="btn btn-default navbar-btn" ng-click="logout()">
-      <span class="glyphicon glyphicon-off"></span> Logout</a>
+      <span class="glyphicon glyphicon-off"></span> {{'logout'|translate}}</a>
   </li>
 </ul>
 

@@ -1,0 +1,196 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: angular eduit client\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Vaclav Klecanda <vencax@centrum.cz>\n"
+"Language-Team: \n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: app/templates/groups/groupman.html:8
+msgid "actions"
+msgstr "akce"
+
+#: app/templates/groups/groupman.html:13 app/templates/users/userman.html:21
+msgid "add"
+msgstr "přidat"
+
+#: app/templates/pcs/pcmanindex.html:16
+msgid "administrate"
+msgstr "administrovat"
+
+#: app/templates/pcs/pcman.html:16
+msgid "clear filter"
+msgstr "vypni filtr"
+
+#: app/templates/pcs/pcman.html:15
+msgid "clear sorting"
+msgstr "vypni řazení"
+
+#: app/templates/groups/groupman.html:33 app/templates/pcs/pcman.html:79
+#: app/templates/users/userman.html:53
+msgid "edit"
+msgstr "upravit"
+
+#: app/templates/users/user_edit.html:44
+msgid "email"
+msgstr "email"
+
+#: app/templates/users/user_edit.html:51
+msgid "email is invalid"
+msgstr "email je nesprávný"
+
+#: app/templates/users/profile.html:14 app/templates/users/user_edit.html:34
+msgid "full name"
+msgstr "celé jméno"
+
+#: app/templates/groups/group_edit.html:7
+msgid "group edit form"
+msgstr "formulář pro úpravu skupiny"
+
+#: app/templates/mixins/navbar.html:5
+msgid "group management"
+msgstr "správa skupin"
+
+#: app/templates/mixins/navbar.html:3
+msgid "home"
+msgstr "domů"
+
+#: app/templates/pcs/pc_edit.html:8
+msgid "host edit form"
+msgstr "formulář pro úpravu stroje"
+
+#: app/templates/mixins/navbar.html:6 app/templates/pcs/pcman.html:4
+#: app/templates/pcs/pcmanindex.html:3
+msgid "host management"
+msgstr "správa strojů"
+
+#: app/templates/pcs/pc_edit.html:15
+msgid "host name"
+msgstr "jmého stroje"
+
+#: app/templates/pcs/pc_edit.html:21
+msgid "host name cannot be longer than 20 characters"
+msgstr "jméno stroje nesmí být delší než 20 znaků"
+
+#: app/templates/pcs/pc_edit.html:20
+msgid "host name must be at least 3 characters"
+msgstr "jméno stroje musí mít aspoň 3 znaky"
+
+#: app/templates/mixins/navbar.html:16
+msgid "logout"
+msgstr "odhlásit"
+
+#: app/templates/pcs/pcman.html:74
+msgid "make reservation"
+msgstr "vytvořit rezervaci"
+
+#: app/templates/groups/group_edit.html:14
+msgid "name"
+msgstr "jméno"
+
+#: app/templates/groups/group_edit.html:19 app/templates/users/profile.html:19
+#: app/templates/users/user_edit.html:39
+msgid "name cannot be longer than 32 characters"
+msgstr "jméno nesmí být delší než 32 znaků"
+
+#: app/templates/users/user_edit.html:83
+msgid "other groups"
+msgstr "další skupiny"
+
+#: app/templates/users/profile.html:26 app/templates/users/user_edit.html:57
+msgid "password"
+msgstr "heslo"
+
+#: app/templates/users/profile.html:44
+msgid "password and password repeat do not match"
+msgstr "heslo a kontrolní heslo nesouhlasí"
+
+#: app/templates/users/user_edit.html:64
+msgid "password is required"
+msgstr "heslo je povinné"
+
+#: app/templates/pcs/pc_edit.html:19
+msgid "please input a hostname"
+msgstr "zadej název stroje"
+
+#: app/templates/users/user_edit.html:25
+msgid "please input a user"
+msgstr "zadej uživatele"
+
+#: app/templates/users/user_edit.html:38
+msgid "please input full name"
+msgstr "zadej celé jméno"
+
+#: app/templates/groups/group_edit.html:18
+msgid "please input group name"
+msgstr "zadej název skupiny"
+
+#: app/templates/login.html:25
+msgid "please input your password"
+msgstr "zadej heslo"
+
+#: app/templates/login.html:14
+msgid "please input your username"
+msgstr "zadej uživatelské jméno"
+
+#: app/templates/login.html:7
+msgid "please log in"
+msgstr "prosím přihlaš se"
+
+#: app/templates/users/user_edit.html:73
+msgid "primary group"
+msgstr "primární skupina"
+
+#: app/templates/users/profile.html:4
+msgid "profile"
+msgstr "profil"
+
+#: app/templates/pcs/pcman.html:84
+msgid "remove reservation"
+msgstr "odstraň rezervaci"
+
+#: app/templates/users/profile.html:37
+msgid "repeat password"
+msgstr "zopakuj heslo"
+
+#: app/templates/mixins/navbar.html:12
+msgid "signed in as"
+msgstr "přihlášen jako"
+
+#: app/templates/users/user_edit.html:26
+msgid "use only letters and numbers"
+msgstr "jen písmena a číslice"
+
+#: app/templates/users/user_edit.html:7
+msgid "user edit form"
+msgstr "formulář pro úpravu uživatele"
+
+#: app/templates/mixins/navbar.html:4
+msgid "user management"
+msgstr "správa uživatelů"
+
+#: app/templates/users/user_edit.html:16
+msgid "user name"
+msgstr "uživatelské jméno"
+
+#: app/templates/users/user_edit.html:29
+msgid "username already present"
+msgstr "uživatelské jméno už existuje"
+
+#: app/templates/users/user_edit.html:27
+msgid "username must be at least 5 characters"
+msgstr "uživatelské jméno musí mít aspoň 5 znaků"
+
+#: app/templates/users/user_edit.html:28
+msgid "username name cannot be longer than 20 characters"
+msgstr "uživatelské jméno nesmí být delší než 20 znaků"
+
+#: app/templates/pcs/pcman.html:90
+msgid "wakeup"
+msgstr "probudit"

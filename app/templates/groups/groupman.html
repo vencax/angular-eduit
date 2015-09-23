@@ -5,12 +5,12 @@
 
     <div class="pull-right">
       <button type="button" class="btn btn-default" bs-dropdown="actionChoices">
-        actions <span class="caret"></span>
+        {{'actions'|translate}} <span class="caret"></span>
       </button>
     </div>
 
     <button type="button" class="btn btn-info" ng-click="showModal();">
-      <i class="glyphicon glyphicon-plus"></i> Add
+      <i class="glyphicon glyphicon-plus"></i> {{'add'|translate}}
     </button>
 
     <table ng-table="tableParams" show-filter="true" class="table table-stripped">
@@ -30,7 +30,7 @@
 
         <td>
           <button type="button" class="btn btn-sm" data-ng-click="showModal(dato);">
-            <i class="glyphicon glyphicon-pencil"></i> edit
+            <i class="glyphicon glyphicon-pencil"></i> {{'edit'|translate}}
           </button>
         </td>
 

@@ -1,0 +1,194 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/templates/groups/groupman.html:8
+msgid "actions"
+msgstr ""
+
+#: app/templates/groups/groupman.html:13
+#: app/templates/users/userman.html:21
+msgid "add"
+msgstr ""
+
+#: app/templates/pcs/pcmanindex.html:16
+msgid "administrate"
+msgstr ""
+
+#: app/templates/pcs/pcman.html:16
+msgid "clear filter"
+msgstr ""
+
+#: app/templates/pcs/pcman.html:15
+msgid "clear sorting"
+msgstr ""
+
+#: app/templates/groups/groupman.html:33
+#: app/templates/pcs/pcman.html:79
+#: app/templates/users/userman.html:53
+msgid "edit"
+msgstr ""
+
+#: app/templates/users/user_edit.html:44
+msgid "email"
+msgstr ""
+
+#: app/templates/users/user_edit.html:51
+msgid "email is invalid"
+msgstr ""
+
+#: app/templates/users/profile.html:14
+#: app/templates/users/user_edit.html:34
+msgid "full name"
+msgstr ""
+
+#: app/templates/groups/group_edit.html:7
+msgid "group edit form"
+msgstr ""
+
+#: app/templates/mixins/navbar.html:5
+msgid "group management"
+msgstr ""
+
+#: app/templates/mixins/navbar.html:3
+msgid "home"
+msgstr ""
+
+#: app/templates/pcs/pc_edit.html:8
+msgid "host edit form"
+msgstr ""
+
+#: app/templates/mixins/navbar.html:6
+#: app/templates/pcs/pcman.html:4
+#: app/templates/pcs/pcmanindex.html:3
+msgid "host management"
+msgstr ""
+
+#: app/templates/pcs/pc_edit.html:15
+msgid "host name"
+msgstr ""
+
+#: app/templates/pcs/pc_edit.html:21
+msgid "host name cannot be longer than 20 characters"
+msgstr ""
+
+#: app/templates/pcs/pc_edit.html:20
+msgid "host name must be at least 3 characters"
+msgstr ""
+
+#: app/templates/mixins/navbar.html:16
+msgid "logout"
+msgstr ""
+
+#: app/templates/pcs/pcman.html:74
+msgid "make reservation"
+msgstr ""
+
+#: app/templates/groups/group_edit.html:14
+msgid "name"
+msgstr ""
+
+#: app/templates/groups/group_edit.html:19
+#: app/templates/users/profile.html:19
+#: app/templates/users/user_edit.html:39
+msgid "name cannot be longer than 32 characters"
+msgstr ""
+
+#: app/templates/users/user_edit.html:83
+msgid "other groups"
+msgstr ""
+
+#: app/templates/users/profile.html:26
+#: app/templates/users/user_edit.html:57
+msgid "password"
+msgstr ""
+
+#: app/templates/users/profile.html:44
+msgid "password and password repeat do not match"
+msgstr ""
+
+#: app/templates/users/user_edit.html:64
+msgid "password is required"
+msgstr ""
+
+#: app/templates/pcs/pc_edit.html:19
+msgid "please input a hostname"
+msgstr ""
+
+#: app/templates/users/user_edit.html:25
+msgid "please input a user"
+msgstr ""
+
+#: app/templates/users/user_edit.html:38
+msgid "please input full name"
+msgstr ""
+
+#: app/templates/groups/group_edit.html:18
+msgid "please input group name"
+msgstr ""
+
+#: app/templates/login.html:25
+msgid "please input your password"
+msgstr ""
+
+#: app/templates/login.html:14
+msgid "please input your username"
+msgstr ""
+
+#: app/templates/login.html:7
+msgid "please log in"
+msgstr ""
+
+#: app/templates/users/user_edit.html:73
+msgid "primary group"
+msgstr ""
+
+#: app/templates/users/profile.html:4
+msgid "profile"
+msgstr ""
+
+#: app/templates/pcs/pcman.html:84
+msgid "remove reservation"
+msgstr ""
+
+#: app/templates/users/profile.html:37
+msgid "repeat password"
+msgstr ""
+
+#: app/templates/mixins/navbar.html:12
+msgid "signed in as"
+msgstr ""
+
+#: app/templates/users/user_edit.html:26
+msgid "use only letters and numbers"
+msgstr ""
+
+#: app/templates/users/user_edit.html:7
+msgid "user edit form"
+msgstr ""
+
+#: app/templates/mixins/navbar.html:4
+msgid "user management"
+msgstr ""
+
+#: app/templates/users/user_edit.html:16
+msgid "user name"
+msgstr ""
+
+#: app/templates/users/user_edit.html:29
+msgid "username already present"
+msgstr ""
+
+#: app/templates/users/user_edit.html:27
+msgid "username must be at least 5 characters"
+msgstr ""
+
+#: app/templates/users/user_edit.html:28
+msgid "username name cannot be longer than 20 characters"
+msgstr ""
+
+#: app/templates/pcs/pcman.html:90
+msgid "wakeup"
+msgstr ""

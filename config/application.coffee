@@ -17,6 +17,10 @@ module.exports = (lineman) ->
 
   app = lineman.config.application
 
+  # gettext stuff
+  app.loadNpmTasks.push "grunt-angular-gettext"
+  app.prependTasks.common.push "nggettext_compile"
+
   backendConfig =
     userman_apiurl: process.env.USERMAN_APIURL || '/userman_api'
     dhcpd_apiurl: process.env.DHCPD_APIURL || '/dhcpdman_api'
@@ -51,6 +55,16 @@ module.exports = (lineman) ->
   uglify:
     options:
       mangle: false
+
+  nggettext_extract:
+    all:
+      files:
+        'config/i18n/template.pot': ['app/templates/**/*.html']
+
+  nggettext_compile:
+    all:
+      files:
+        'app/js/translations.js': ['config/i18n/*.po']
 
     # During development, you'll likely want to make XHR (AJAX) requests to an API on the same
     # port as your lineman development server. By enabling the API proxy and setting the port, all
