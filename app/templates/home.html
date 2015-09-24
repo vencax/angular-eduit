@@ -1,3 +1,61 @@
-<p>
-  Tady zatim nic neni.
-</p>
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+
+    <h3>
+      <i class="glyphicon glyphicon-random"></i> {{'change password' | translate}}
+    </h3>
+
+    <p translate>
+      Form for user's password changing.
+    </p>
+
+    <a href="/profile" class="btn btn-default">{{'here'|translate}} ...</a>
+
+  </div>
+
+  <div ng-show="loggedUser.is_admin" class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+
+    <h3>
+      <i class="glyphicon glyphicon-user"></i> {{'user management' | translate}}
+    </h3>
+
+    <p translate>
+      All user operations in one place.
+      Adding, changing attributes (i.e. passwords), group memberships, etc.
+    </p>
+
+    <a href="/userman" class="btn btn-default">{{'here'|translate}} ...</a>
+
+  </div>
+
+  <div ng-show="loggedUser.is_admin" class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+
+    <h3>
+      <i class="glyphicon glyphicon-heart"></i> {{'group management' | translate}}
+    </h3>
+
+    <p translate>
+      Adding, changing, deleting user groups.
+    </p>
+
+    <a href="/groupman" class="btn btn-default">{{'here'|translate}} ...</a>
+
+  </div>
+
+  <div ng-show="loggedUser.is_admin" class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+
+    <h3>
+      <i class="glyphicon glyphicon-hdd"></i> {{'host management' | translate}}
+    </h3>
+
+    <p translate>
+      Adding, changing, deleting user groups.
+    </p>
+
+    <a href="/pcman" class="btn btn-default">{{'here'|translate}} ...</a>
+
+  </div>
+
+</div>

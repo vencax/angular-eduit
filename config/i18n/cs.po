@@ -12,6 +12,22 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
+#: app/templates/home.html:39 app/templates/home.html:53
+msgid "Adding, changing, deleting user groups."
+msgstr "Přidávání, úpravy, mazání skupin uživatelů"
+
+#: app/templates/home.html:24
+msgid ""
+"All user operations in one place.\n"
+"      Adding, changing attributes (i.e. passwords), group memberships, etc."
+msgstr ""
+"Všechny operace s uživately na jednom místě. Přidávání, změna atributů (i "
+"hesla), členství ve skupinách, atd."
+
+#: app/templates/home.html:10
+msgid "Form for user's password changing."
+msgstr "Formulář na změnu hesla."
+
 #: app/templates/groups/groupman.html:8
 msgid "actions"
 msgstr "akce"
@@ -24,11 +40,15 @@ msgstr "přidat"
 msgid "administrate"
 msgstr "administrovat"
 
-#: app/templates/pcs/pcman.html:16
+#: app/templates/home.html:7
+msgid "change password"
+msgstr "změnit heslo"
+
+#: app/templates/pcs/pcman.html:16 app/templates/users/userman.html:12
 msgid "clear filter"
 msgstr "vypni filtr"
 
-#: app/templates/pcs/pcman.html:15
+#: app/templates/pcs/pcman.html:15 app/templates/users/userman.html:9
 msgid "clear sorting"
 msgstr "vypni řazení"
 
@@ -53,9 +73,14 @@ msgstr "celé jméno"
 msgid "group edit form"
 msgstr "formulář pro úpravu skupiny"
 
-#: app/templates/mixins/navbar.html:5
+#: app/templates/home.html:36 app/templates/mixins/navbar.html:5
 msgid "group management"
 msgstr "správa skupin"
+
+#: app/templates/home.html:14 app/templates/home.html:29
+#: app/templates/home.html:43 app/templates/home.html:57
+msgid "here"
+msgstr "zde"
 
 #: app/templates/mixins/navbar.html:3
 msgid "home"
@@ -65,8 +90,8 @@ msgstr "domů"
 msgid "host edit form"
 msgstr "formulář pro úpravu stroje"
 
-#: app/templates/mixins/navbar.html:6 app/templates/pcs/pcman.html:4
-#: app/templates/pcs/pcmanindex.html:3
+#: app/templates/home.html:50 app/templates/mixins/navbar.html:6
+#: app/templates/pcs/pcman.html:4 app/templates/pcs/pcmanindex.html:3
 msgid "host management"
 msgstr "správa strojů"
 
@@ -171,7 +196,7 @@ msgstr "jen písmena a číslice"
 msgid "user edit form"
 msgstr "formulář pro úpravu uživatele"
 
-#: app/templates/mixins/navbar.html:4
+#: app/templates/home.html:21 app/templates/mixins/navbar.html:4
 msgid "user management"
 msgstr "správa uživatelů"
 
