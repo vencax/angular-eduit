@@ -27,7 +27,7 @@ module.exports = (lineman) ->
       "node_modules/angular/angular.js"
       "node_modules/angular-resource/angular-resource.js"
       "node_modules/angular-route/angular-route.js"
-      "node_modules/visor/release/visor.js"
+      "node_modules/angular-visor/release/visor.js"
       "node_modules/ng-table/dist/ng-table.js"
       "node_modules/ngstorage/ngStorage.js"
       "node_modules/moment/min/moment-with-locales.js"
