@@ -1,0 +1,45 @@
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <h3 class="modal-title">{{'user import' | translate}}</h3>
+
+    <p ng-hide="error==null">{{error}}</p>
+
+    <div class="form-group" ng-show="parsed==null">
+      <label class="control-label">{{'primary group' | translate}}</label>
+      <select class="form-control" ng-model="group"
+        ng-options="g.id as g.name for g in groups"></select>
+    </div>
+
+    <div class="form-group" ng-show="parsed==null && group!=null">
+      <label class="control-label">{{'csv file with new users' | translate}}</label>
+      <input type="file" onChange="angular.element(this).scope().parseDaFile(this);" />
+    </div>
+
+    <table class="table table-hover" ng-hide="parsed==null">
+      <thead>
+        <tr>
+          <th>{{'username' | translate}}</th>
+          <th>{{'name' | translate}}</th>
+          <th>{{'email' | translate}}</th>
+          <th>{{'password' | translate}}</th>
+          <th>{{'group' | translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="i in parsed track by $index">
+          <td>{{i.username}}</td>
+          <td>{{i.name}}</td>
+          <td>{{i.email}}</td>
+          <td>{{i.password}}</td>
+          <td>{{i.gid | groupname:groups}}</td>
+        </tr>
+      </tbody>
+    <table>
+
+    <button class="btn btn-secondary" ng-hide="parsed==null" ng-click="reset();">reset</button>
+    <button class="btn btn-primary" ng-hide="parsed==null" ng-click="save();">save</button>
+
+  </div>
+</div>

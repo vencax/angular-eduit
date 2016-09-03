@@ -54,6 +54,12 @@ angular.module("app")
     restrict:function(user){return user && user.is_admin;}
   });
 
+  $routeProvider.when('/import', {
+    templateUrl: 'groups/import.html',
+    controller: 'ImportCtlr',
+    restrict:function(user){return user && user.is_admin;}
+  });
+
   $routeProvider.when('/pcman', {
     templateUrl: 'pcs/pcmanindex.html',
     controller: 'PcmanIndexCtlr',
