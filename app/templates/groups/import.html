@@ -25,6 +25,7 @@
           <th>{{'email' | translate}}</th>
           <th>{{'password' | translate}}</th>
           <th>{{'group' | translate}}</th>
+          <th>{{'result' | translate}}</th>
         </tr>
       </thead>
       <tbody>
@@ -34,6 +35,7 @@
           <td>{{i.email}}</td>
           <td>{{i.password}}</td>
           <td>{{i.gid | groupname:groups}}</td>
+          <td><span class="error" ng-show="i.error != null">{{i.error}}</span></td>
         </tr>
       </tbody>
     <table>

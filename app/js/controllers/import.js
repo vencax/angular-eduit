@@ -47,15 +47,19 @@ function _importCtrl($scope, User, Group) {
     $scope.group = null
   }
 
+  function _saveUser(user) {
+    var newU = new User()
+    angular.extend(newU, user)
+    newU.$save(function(data) {
+      user.error = false
+    }, function(err) {
+      user.error = err.data
+    })
+  }
+
   $scope.save = function() {
     for(var u in $scope.parsed) {
-      var newU = new User()
-      angular.extend(newU, u)
-      newU.$save(function(data) {
-        u.error = false
-      }, function(err) {
-        u.error = err
-      })
+      _saveUser($scope.parsed[u])
     }
   }
 
